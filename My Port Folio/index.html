@@ -1,0 +1,529 @@
+```html
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Muhammad Ihsan Bin Roshdan | Portfolio</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        scroll-behavior: smooth;
+        font-family: "Poppins", sans-serif;
+      }
+
+      :root {
+        --red: #ff4d6d;
+        --orange: #ff9f1c;
+        --yellow: #ffd60a;
+        --green: #2dc653;
+        --cyan: #00b4d8;
+        --blue: #4361ee;
+        --purple: #8338ec;
+        --pink: #ff66c4;
+        --dark: #0f172a;
+        --light: #f8fafc;
+        --card: #ffffff;
+        --shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      }
+
+      body {
+        background: #f5f7fa;
+        color: #333;
+        display: flex;
+      }
+
+      /* SIDEBAR */
+      .sidebar {
+        width: 260px;
+        height: 100vh;
+        position: fixed;
+        left: 0;
+        top: 0;
+        overflow-y: auto;
+        background: linear-gradient(
+          180deg,
+          #ff4d6d,
+          #ff9f1c,
+          #ffd60a,
+          #2dc653,
+          #00b4d8,
+          #4361ee,
+          #8338ec
+        );
+        color: white;
+        padding: 30px 20px;
+        z-index: 1000;
+      }
+
+      .logo {
+        text-align: center;
+        margin-bottom: 40px;
+      }
+
+      .logo h2 {
+        font-size: 24px;
+      }
+
+      .logo p {
+        font-size: 14px;
+      }
+
+      .nav-links {
+        list-style: none;
+      }
+
+      .nav-links li {
+        margin: 12px 0;
+      }
+
+      .nav-links a {
+        color: white;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px;
+        border-radius: 12px;
+        transition: 0.3s;
+      }
+
+      .nav-links a:hover {
+        background: rgba(255, 255, 255, 0.2);
+        transform: translateX(6px);
+      }
+
+      .main {
+        margin-left: 260px;
+        width: calc(100% - 260px);
+      }
+
+      /* HERO */
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 40px;
+        background: linear-gradient(
+          -45deg,
+          #ff4d6d,
+          #ff9f1c,
+          #ffd60a,
+          #2dc653,
+          #00b4d8,
+          #4361ee,
+          #8338ec,
+          #ff66c4
+        );
+        background-size: 400% 400%;
+        animation: gradientMove 12s ease infinite;
+      }
+
+      @keyframes gradientMove {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      .hero-content {
+        display: flex;
+        gap: 60px;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      .profile-pic {
+        width: 280px;
+        height: 280px;
+        border-radius: 50%;
+        background: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: var(--shadow);
+        font-size: 100px;
+        color: var(--purple);
+      }
+
+      .hero-text {
+        color: white;
+        max-width: 600px;
+      }
+
+      .hero-text h1 {
+        font-size: 3rem;
+      }
+
+      .hero-text h3 {
+        margin: 10px 0;
+      }
+
+      .hero-text p {
+        line-height: 1.8;
+      }
+
+      .btn {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 12px 25px;
+        background: white;
+        color: #333;
+        text-decoration: none;
+        border-radius: 30px;
+        font-weight: 600;
+        transition: 0.3s;
+      }
+
+      .btn:hover {
+        transform: translateY(-5px) scale(1.05);
+      }
+
+      /* SECTIONS */
+      section {
+        padding: 80px 10%;
+      }
+
+      .section-title {
+        text-align: center;
+        margin-bottom: 50px;
+      }
+
+      .section-title h2 {
+        font-size: 2.2rem;
+      }
+
+      /* CARDS */
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 25px;
+      }
+
+      .card {
+        background: white;
+        padding: 25px;
+        border-radius: 20px;
+        box-shadow: var(--shadow);
+        transition: 0.4s;
+      }
+
+      .card:hover {
+        transform: translateY(-10px);
+      }
+
+      .card:nth-child(1) {
+        border-top: 6px solid #ff4d6d;
+      }
+      .card:nth-child(2) {
+        border-top: 6px solid #ff9f1c;
+      }
+      .card:nth-child(3) {
+        border-top: 6px solid #2dc653;
+      }
+      .card:nth-child(4) {
+        border-top: 6px solid #4361ee;
+      }
+
+      .card i {
+        font-size: 2.2rem;
+        margin-bottom: 15px;
+        background: linear-gradient(
+          45deg,
+          #ff4d6d,
+          #ff9f1c,
+          #ffd60a,
+          #2dc653,
+          #00b4d8,
+          #4361ee,
+          #8338ec
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      /* ABOUT */
+      .about-box {
+        background: white;
+        padding: 30px;
+        border-radius: 20px;
+        box-shadow: var(--shadow);
+        line-height: 2;
+      }
+
+      /* SKILLS */
+      .skill-card {
+        text-align: center;
+      }
+
+      /* CONTACT */
+      .contact-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 25px;
+      }
+
+      .contact-box {
+        background: white;
+        padding: 25px;
+        border-radius: 20px;
+        text-align: center;
+        box-shadow: var(--shadow);
+        transition: 0.4s;
+      }
+
+      .contact-box:hover {
+        transform: translateY(-10px);
+      }
+
+      .contact-box i {
+        font-size: 2rem;
+        margin-bottom: 15px;
+        background: linear-gradient(
+          45deg,
+          #ff4d6d,
+          #ff9f1c,
+          #ffd60a,
+          #2dc653,
+          #00b4d8,
+          #4361ee,
+          #8338ec
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      footer {
+        background: #0f172a;
+        color: white;
+        text-align: center;
+        padding: 20px;
+      }
+
+      /* MOBILE */
+      @media (max-width: 768px) {
+        body {
+          display: block;
+        }
+
+        .sidebar {
+          position: relative;
+          width: 100%;
+          height: auto;
+        }
+
+        .main {
+          margin-left: 0;
+          width: 100%;
+        }
+
+        .hero-content {
+          text-align: center;
+          justify-content: center;
+        }
+
+        .hero-text h1 {
+          font-size: 2.2rem;
+        }
+
+        .profile-pic {
+          width: 220px;
+          height: 220px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+      <div class="logo">
+        <h2>IHSAN</h2>
+        <p>Future Doctor</p>
+      </div>
+
+      <ul class="nav-links">
+        <li>
+          <a href="#home"><i class="fas fa-house"></i> Home</a>
+        </li>
+        <li>
+          <a href="#about"><i class="fas fa-user"></i> About Me</a>
+        </li>
+        <li>
+          <a href="#info"><i class="fas fa-address-card"></i> Information</a>
+        </li>
+        <li>
+          <a href="#skills"><i class="fas fa-star"></i> Skills</a>
+        </li>
+        <li>
+          <a href="#contact"><i class="fas fa-phone"></i> Contact</a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- MAIN -->
+    <div class="main">
+      <!-- HERO -->
+      <section class="hero" id="home">
+        <div class="hero-content">
+          <div class="profile-pic">
+            <i class="fas fa-user"></i>
+          </div>
+
+          <div class="hero-text">
+            <h1>MUHAMMAD IHSAN BIN ROSHDAN</h1>
+            <h3>Student • Future Doctor</h3>
+
+            <p>
+              Welcome to my colorful personal portfolio website. I am passionate
+              about learning, exploring science, solving problems, and achieving
+              my dream of becoming a doctor.
+            </p>
+
+            <a href="#about" class="btn">Learn More</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section id="about">
+        <div class="section-title">
+          <h2>📖 About Me</h2>
+        </div>
+
+        <div class="about-box">
+          Hello! My name is <strong>Muhammad Ihsan Bin Roshdan</strong>. I study
+          at <strong>SMK Tun Syed Zahiruddin</strong>. I enjoy watching anime
+          and reading manga because they inspire creativity, imagination, and
+          determination. My favourite subjects are Mathematics and Science
+          because they challenge me to think critically and understand the world
+          around me. I am a hardworking, responsible, and curious student who
+          enjoys learning new things every day. My goal is to become a
+          successful doctor and contribute positively to society by helping
+          people and improving lives through healthcare and knowledge.
+        </div>
+      </section>
+
+      <!-- INFO -->
+      <section id="info">
+        <div class="section-title">
+          <h2>👤 Personal Information</h2>
+        </div>
+
+        <div class="cards">
+          <div class="card">
+            <i class="fas fa-school"></i>
+            <h3>School</h3>
+            <p>SMK Tun Syed Zahiruddin</p>
+          </div>
+
+          <div class="card">
+            <i class="fas fa-user-doctor"></i>
+            <h3>Dream Career</h3>
+            <p>Doctor</p>
+          </div>
+
+          <div class="card">
+            <i class="fas fa-book"></i>
+            <h3>Favourite Subject</h3>
+            <p>Math & Science</p>
+          </div>
+
+          <div class="card">
+            <i class="fas fa-film"></i>
+            <h3>Hobbies</h3>
+            <p>Watching Anime & Reading Manga</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SKILLS -->
+      <section id="skills">
+        <div class="section-title">
+          <h2>⭐ Skills</h2>
+        </div>
+
+        <div class="cards">
+          <div class="card skill-card">
+            <i class="fas fa-lightbulb"></i>
+            <h3>Problem Solving</h3>
+            <p>
+              Strong ability to analyze situations, think critically, and find
+              effective solutions.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact">
+        <div class="section-title">
+          <h2>📞 Contact</h2>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-box">
+            <i class="fas fa-phone"></i>
+            <h3>Phone Number</h3>
+            <p>+60 1X-XXXXXXX</p>
+          </div>
+
+          <div class="contact-box">
+            <i class="fas fa-envelope"></i>
+            <h3>Email Address</h3>
+            <p>your.email@gmail.com</p>
+          </div>
+
+          <div class="contact-box">
+            <i class="fab fa-instagram"></i>
+            <h3>Social Media</h3>
+            <p>@yourusername</p>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        © 2026 Muhammad Ihsan Bin Roshdan | School Portfolio Project
+      </footer>
+    </div>
+
+    <script>
+      // Card Animation
+      const cards = document.querySelectorAll(".card, .contact-box");
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
+          }
+        });
+      });
+
+      cards.forEach((card) => {
+        card.style.opacity = "0";
+        card.style.transform = "translateY(40px)";
+        card.style.transition = "0.8s ease";
+        observer.observe(card);
+      });
+    </script>
+  </body>
+</html>
+```
